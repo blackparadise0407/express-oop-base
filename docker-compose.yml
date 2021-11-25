@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    hotel_manage_server:
+        restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: blackparadise0407/hotel_manage_server
+        ports:
+            - '8008:8008'
+    mongo:
+        image: mongo
+        ports:
+            - 27017:27018
+        volumes:
+            - mongodb:/data/db
+volumes:
+    mongodb:
